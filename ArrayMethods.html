@@ -69,16 +69,69 @@
         // Array.isArray()
         /****/
 
-            console.log(Array.isArray([0,5,6])); //true
-            console.log(Array.isArray(0,3,2));  //false
-            console.log((Array.isArray(countries[0].borders))); // true
+            //console.log(Array.isArray([0,5,6])); //true
+            //console.log(Array.isArray(0,3,2));  //false
+            //console.log((Array.isArray(countries[0].borders))); // true
 
         /****/
         // Array.observe()
         /****/
 
-            
+            var arr = [3,2,5,1];
+/*
+            Array.observe(arr, function(changes){
+                console.log(changes);
+            });
+*/
+            arr[0] = 0;
 
+        /****/
+        // Array.of()
+        /****/
+
+            //console.log(Array.of(2,4,3));
+            //console.log((Array.of("hello")));
+            //console.log((Array.of(null)));
+
+        /****/
+        // Array.prototype.concat
+        /****/
+
+            //console.log([1,2,3].concat(4,5));
+            //console.log(([1,2,3].concat(4,[5,6])));
+            //console.log(([1,2,3].concat(4,[5,6,[7,8]])));
+            //console.log(([1,2,3].concat.apply(4,[5,6,[7,8]])));
+
+        /****/
+        // Array.prototype.copyWithin()
+        /****/
+
+            //console.log([1,2,3,4,5].copyWithin(-1,3));
+
+        /****/
+        // Array.prototype.entries()
+        /****/
+
+            var arrEntries = arr.entries();
+
+            //console.log(arrEntries.next().value);
+            //console.log(arrEntries.next().value);
+
+        /****/
+        // Array.protoype.every()
+        /****/
+
+            // check if every country has at least one neighbor
+            var allHaveBorders = countries.every(function(country){
+                return country.borders.length > 0;
+            });
+            console.log(allHaveBorders);
+
+        /****/
+        // Array.prototype.fill()
+        /****/
+
+            
 
     </script>
 </head>
