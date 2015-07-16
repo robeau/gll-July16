@@ -6,6 +6,7 @@
     <script src="countries.js"></script>
     <script>
 
+        /*
         console.log(countries[0]);
 
         countries.forEach(function(country){
@@ -31,6 +32,14 @@
             }
             return cName;
         }
+        */
+
+
+        var totalPop = countries.reduce(function(prev, curr){
+            return prev + curr.population;
+        }, 0);
+        console.log(totalPop);
+
 
     </script>
 </head>
