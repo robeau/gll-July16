@@ -6,39 +6,63 @@
     <script src="countries.js"></script>
     <script>
 
-        /*
-        console.log(countries[0]);
+        //console.log(countries[0]);
 
         countries.forEach(function(country){
-            console.log(country.name);
-        })
-
-        var current;
-
-        function neighbors (countryName){
-            for (var j = 0; j < countries.length; j++){
-                if ()
-            }
-        }
-
-        var cName;
-
-        function alphaToName (alpha){
-            for(var i = 0, i < countries.length; i++){
-                current = countries[i];
-                if (current.alpha3Code === alpha){
-                    cName = current.name;
-                }
-            }
-            return cName;
-        }
-        */
-
+            //console.log(country.name);
+        });
 
         var totalPop = countries.reduce(function(prev, curr){
             return prev + curr.population;
         }, 0);
-        console.log(totalPop);
+        //console.log(totalPop);
+
+        var islands = countries.filter(function(country){
+            return country.borders.length === 0;
+        }).map(function(country){
+            return country.name;
+        });
+
+        //console.log(islands);
+
+        /************************************************************************************/
+        // Begin  code for Array.prototype
+        /************************************************************************************/
+
+        /****/
+        // Array.prototype.sort
+        /****/
+
+            // sort countries by number of neighbors
+            var sortByBorders = countries.sort(function(a,b){
+                return +(a.borders.length > b.borders.length) || +(a.borders.length === b.borders.length) - 1;
+            }).map(function(country){
+                return country.name;
+            });
+
+            //console.log(sortByBorders);
+
+            //function for checking the border number of a country
+            function getBorderCount (name) {
+                var current;
+                for (var i = 0; i < countries.length; i++){
+                    current = countries[i];
+                    if(current.name == name){
+                        return current.borders.length;
+                    }
+                }
+            }
+            //console.log(getBorderCount("Fiji"));
+
+        /****/
+        // Array.from()
+        /****/
+        
+            var fromTest = function(){
+                return Array.from(arguments);
+            };
+
+            console.log(fromTest(2,3,6));
 
 
     </script>
