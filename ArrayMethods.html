@@ -57,12 +57,27 @@
         /****/
         // Array.from()
         /****/
-        
+
             var fromTest = function(){
                 return Array.from(arguments);
             };
 
-            console.log(fromTest(2,3,6));
+            //console.log(fromTest(2,3,6));
+            //console.log(Array.from("hello"));
+
+        /****/
+        // Array.isArray()
+        /****/
+
+            console.log(Array.isArray([0,5,6])); //true
+            console.log(Array.isArray(0,3,2));  //false
+            console.log((Array.isArray(countries[0].borders))); // true
+
+        /****/
+        // Array.observe()
+        /****/
+
+            
 
 
     </script>
