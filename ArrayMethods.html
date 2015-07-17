@@ -13,18 +13,6 @@
         // Begin  code for Array.prototype
         /************************************************************************************/
 
-        /****/
-        // Array.prototype.sort
-        /****/
-
-            // sort countries by number of neighbors
-            var sortByBorders = countries.sort(function(a,b){
-                return +(a.borders.length > b.borders.length) || +(a.borders.length === b.borders.length) - 1;
-            }).map(function(country){
-                return country.name;
-            });
-
-            //console.log(sortByBorders);
 
             //function for checking the border number of a country
             function getBorderCount (name) {
@@ -115,7 +103,7 @@
         // Array.prototype.fill()
         /****/
 
-            arr.fill(20);
+            //arr.fill(20);
             //console.log(arr);
 
         /****/
@@ -134,7 +122,7 @@
         /****/
         // Array.prototype.find()
         /****/
-
+/*
             //finds a country with more than 10 neighbors
             var largeBorders = countries.find(function (country) {
                 if (country.borders.length > 10){
@@ -142,19 +130,19 @@
                 }
                 else return false;
             });
-
+*/
             //console.log(largeBorders);
 
         /****/
         // Array.prototype.findIndex()
         /****/
-
-            var largeBordersIndex = countries.find(function(country) {
+/*
+            var largeBordersIndex = countries.findIndex(function(country) {
                 if(country.borders.length > 10){
                     return country.borders.length > 10;
                 }
             });
-
+*/
             //console.log(largeBordersIndex);
 
         /****/
@@ -205,7 +193,7 @@
 
             // sort countries by number of neighbors and then map to return by name
         /*
-            sortByBorders = countries.sort(function(a,b){
+            var sortByBorders = countries.sort(function(a,b){
                 return +(a.borders.length > b.borders.length) || +(a.borders.length === b.borders.length) - 1;
             }).map(function(country){
                 return country.name;
@@ -252,6 +240,93 @@
 
         /****/
         // Array.prototype.reverse()
+        /****/
+
+            //console.log([1,2,3,4].reverse());
+
+        /****/
+        // Array.prototype.shift()
+        /****/
+
+            var arr3 = [2,4,3,6,1];
+
+            //console.log(arr3.shift());
+            //console.log(arr3);
+
+        /****/
+        // Array.prototype.slice()
+        /****/
+
+            //console.log(countries.slice(0,2));
+
+        /****/
+        // Array.prototype.some()
+        /****/
+
+            // see if any countries have 15 neighbors
+            var hasFifteenNeighbors = countries.some(function(country){
+                return country.borders.length === 15;
+            });
+
+            // console.log(hasFifteenNeighbors); //true
+
+        /****/
+        // Array.prototype.sort()
+        /****/
+
+        // sort countries by number of neighbors
+        var sortByBorder = countries.sort(function(a,b){
+            return +(a.borders.length > b.borders.length) || +(a.borders.length === b.borders.length) - 1;
+        }).map(function(country){
+            return country.name;
+        });
+
+        //console.log(sortByBorder);
+
+        /****/
+        // Array.prototype.splice()
+        /****/
+
+            var arr4 = [1,2,4,5];
+
+            arr4.splice(2,0,3);
+            //console.log(arr4);
+
+        /****/
+        // Array.prototype.toLocaleString()
+        /****/
+
+            var str = arr4.toLocaleString();
+
+            //console.log(str);
+
+        /****/
+        // Array.prototype.toSource()
+        /****/
+
+            //console.log(arr4.toSource());
+
+        /****/
+        // Array.prototype.toString()
+        /****/
+
+            //console.log(arr4.toString());
+
+        /****/
+        // Array.prototype.unshift()
+        /****/
+
+            //console.log(arr4.unshift(9));
+            //console.log(arr4);
+
+        /****/
+        // Array.prototype.values()
+        /****/
+
+            //console.log(arr4.values());
+
+        /****/
+        // Array.prototype[@@iterator]()
         /****/
 
 

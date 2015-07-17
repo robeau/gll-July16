@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IMDB Top 250</title>
+</head>
+<body>
+
+<script>
+    var trs = document.querySelectorAll('tbody.lister-list > tr');
+    var movies = Array.prototype.slice.call(trs);
+
+    var movieTitles = [];
+    movies.forEach(function(movie){
+        movieTitles.push(movie.children[1].firstElementChild.textContent);
+    });
+
+    var movieDates = [];
+    movies.forEach(function(movie){
+        movieDates.push(movie.children[1].lastElementChild.textContent);
+    });
+
+    var json = [];
+    for(var j = 0; j < movies.length; j++){
+        json.push({Title: movieTitles[j], Year: movieDates[j]});
+    }
+
+</script>
+</body>
+</html>
