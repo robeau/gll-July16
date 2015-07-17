@@ -8,22 +8,6 @@
 
         //console.log(countries[0]);
 
-        countries.forEach(function(country){
-            //console.log(country.name);
-        });
-
-        var totalPop = countries.reduce(function(prev, curr){
-            return prev + curr.population;
-        }, 0);
-        //console.log(totalPop);
-
-        var islands = countries.filter(function(country){
-            return country.borders.length === 0;
-        }).map(function(country){
-            return country.name;
-        });
-
-        //console.log(islands);
 
         /************************************************************************************/
         // Begin  code for Array.prototype
@@ -125,13 +109,152 @@
             var allHaveBorders = countries.every(function(country){
                 return country.borders.length > 0;
             });
-            console.log(allHaveBorders);
+            //console.log(allHaveBorders);
 
         /****/
         // Array.prototype.fill()
         /****/
 
-            
+            arr.fill(20);
+            //console.log(arr);
+
+        /****/
+        // Array.prototype.filter()
+        /****/
+
+            // returns only countries that have no neighbors
+            var islands = countries.filter(function(country){
+                return country.borders.length === 0;
+            }).map(function(country){
+                return country.name;
+            });
+
+            //console.log(islands);
+
+        /****/
+        // Array.prototype.find()
+        /****/
+
+            //finds a country with more than 10 neighbors
+            var largeBorders = countries.find(function (country) {
+                if (country.borders.length > 10){
+                    return country.borders.length > 10;
+                }
+                else return false;
+            });
+
+            //console.log(largeBorders);
+
+        /****/
+        // Array.prototype.findIndex()
+        /****/
+
+            var largeBordersIndex = countries.find(function(country) {
+                if(country.borders.length > 10){
+                    return country.borders.length > 10;
+                }
+            });
+
+            //console.log(largeBordersIndex);
+
+        /****/
+        // Array.prototype.forEach()
+        /****/
+
+            countries.forEach(function(country){
+                //console.log(country.name);
+            });
+
+        /****/
+        // Array.prototype.includes()
+        /****/
+
+            //console.log([78,4,20].includes(20));
+
+        /****/
+        // Array.prototype.indexOf()
+        /****/
+
+            //console.log([5,3,7,2].indexOf(7));
+
+        /****/
+        // Array.prototype.join()
+        /****/
+
+            //console.log(countries.join(","));
+            //console.log([3,2,6].join(','));
+
+        /****/
+        // Array.prototype.keys()
+        /****/
+
+            var countryKeys = countries.keys();
+
+            //console.log(countryKeys.next());
+            //console.log(countryKeys.next());
+
+        /****/
+        // Array.prototype.lastIndexOf()
+        /****/
+
+            //console.log([4,2,4,6,1].lastIndexOf(4));
+
+        /****/
+        // Array.prototype.map()
+        /****/
+
+            // sort countries by number of neighbors and then map to return by name
+        /*
+            sortByBorders = countries.sort(function(a,b){
+                return +(a.borders.length > b.borders.length) || +(a.borders.length === b.borders.length) - 1;
+            }).map(function(country){
+                return country.name;
+            });
+            */
+
+        /****/
+        // Array.prototype.pop()
+        /****/
+
+
+            //console.log(arr2);
+            var arr2 = [3,2,5,1,6];
+
+            //console.log(arr2.pop());
+            //console.log(arr2);
+
+        /****/
+        // Array.prototype.push()
+        /****/
+
+            //console.log("Length is: " + arr2.length);
+            //console.log(arr2);
+            //console.log("New length is: " + arr2.push(4,1,9));
+
+        /****/
+        // Array.prototype.reduce()
+        /****/
+
+            // add up the population of  each country
+            var totalPop = countries.reduce(function(prev, curr){
+                return prev + curr.population;
+            }, 0);
+            //console.log(totalPop);
+
+        /****/
+        // Array.prototype.reduceRight()
+        /****/
+
+            var totalPopRight = countries.reduceRight(function(prev, curr){
+                return prev + curr.population;
+            }, 0);
+            //console.log(totalPopRight);
+
+        /****/
+        // Array.prototype.reverse()
+        /****/
+
+
 
     </script>
 </head>
