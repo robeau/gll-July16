@@ -11,43 +11,18 @@
     var companies = Array.prototype.slice.call(trs);
 
     var companyNames = [];
-    companies.forEach(function(company,i){
-        if(i%2 === 0){
-            companyNames.push(company.children[0].textContent);
-        }
-    });
-
     var companySymbols = [];
-    companies.forEach(function(company,i){
-        if(i%2 === 0){
-            companySymbols.push(company.children[1].textContent.trim());
-        }
-    });
-
     var companyMarketCap = [];
-    companies.forEach(function(company,i){
-        if(i%2 === 0){
-            companyMarketCap.push(company.children[2].textContent);
-        }
-    });
-
     var companyCountry = [];
-    companies.forEach(function(company,i){
-        if(i%2 === 0){
-            companyCountry.push(company.children[4].textContent);
-        }
-    });
-
     var companyIpoYear = [];
-    companies.forEach(function(company,i){
-        if(i%2 === 0){
-            companyIpoYear.push(company.children[5].textContent);
-        }
-    });
-
     var companySubsector = [];
     companies.forEach(function(company,i){
         if(i%2 === 0){
+            companyNames.push(company.children[0].textContent);
+            companySymbols.push(company.children[1].textContent.trim());
+            companyMarketCap.push(company.children[2].textContent);
+            companyCountry.push(company.children[4].textContent);
+            companyIpoYear.push(company.children[5].textContent);
             companySubsector.push(company.children[6].textContent);
         }
     });
