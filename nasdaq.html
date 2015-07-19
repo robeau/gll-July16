@@ -10,27 +10,19 @@
     var trs = document.querySelectorAll('table#CompanylistResults > tbody > tr');
     var companies = Array.prototype.slice.call(trs);
 
-    var companyNames = [];
-    var companySymbols = [];
-    var companyMarketCap = [];
-    var companyCountry = [];
-    var companyIpoYear = [];
-    var companySubsector = [];
+    var json = [];
     companies.forEach(function(company,i){
         if(i%2 === 0){
-            companyNames.push(company.children[0].textContent);
-            companySymbols.push(company.children[1].textContent.trim());
-            companyMarketCap.push(company.children[2].textContent);
-            companyCountry.push(company.children[4].textContent);
-            companyIpoYear.push(company.children[5].textContent);
-            companySubsector.push(company.children[6].textContent);
+
+            json.push({
+                Name: company.children[0].textContent,
+                Symbol: company.children[1].textContent.trim(),
+                Market_Cap: company.children[2].textContent,
+                Country: company.children[4].textContent,
+                IPO_Year: company.children[5].textContent,
+                Subsector: company.children[6].textContent});
         }
     });
-
-    var json = [];
-    for(var j = 0; j < companyNames.length; j++){
-        json.push({Name: companyNames[j], Symbol: companySymbols[j], Market_Cap: companyMarketCap[j], Country: companyCountry[j], IPO_Year: companyIpoYear[j], Subsector: companySubsector[j]});
-    }
 
 </script>
 </body>
