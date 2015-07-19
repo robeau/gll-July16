@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<script>
+    var trs = document.querySelectorAll('table#CompanylistResults > tbody > tr');
+    var companies = Array.prototype.slice.call(trs);
+
+    var companyNames = [];
+    companies.forEach(function(company,i){
+        if(i%2 === 0){
+            companyNames.push(company.children[0].textContent);
+        }
+    });
+
+    var companySymbols = [];
+    companies.forEach(function(company,i){
+        if(i%2 === 0){
+            companySymbols.push(company.children[1].textContent.trim());
+        }
+    });
+
+    var companyMarketCap = [];
+    companies.forEach(function(company,i){
+        if(i%2 === 0){
+            companyMarketCap.push(company.children[2].textContent);
+        }
+    });
+
+    var companyCountry = [];
+    companies.forEach(function(company,i){
+        if(i%2 === 0){
+            companyCountry.push(company.children[4].textContent);
+        }
+    });
+
+    var companyIpoYear = [];
+    companies.forEach(function(company,i){
+        if(i%2 === 0){
+            companyIpoYear.push(company.children[5].textContent);
+        }
+    });
+
+    var companySubsector = [];
+    companies.forEach(function(company,i){
+        if(i%2 === 0){
+            companySubsector.push(company.children[6].textContent);
+        }
+    });
+
+    var json = [];
+    for(var j = 0; j < companyNames.length; j++){
+        json.push({Name: companyNames[j], Symbol: companySymbols[j], Market_Cap: companyMarketCap[j], Country: companyCountry[j], IPO_Year: companyIpoYear[j], Subsector: companySubsector[j]});
+    }
+
+</script>
+</body>
+</html>
