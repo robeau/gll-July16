@@ -20,10 +20,33 @@
                 Market_Cap: company.children[2].textContent,
                 Country: company.children[4].textContent,
                 IPO_Year: company.children[5].textContent,
-                Subsector: company.children[6].textContent});
+                Subsector: company.children[6].textContent
+            });
         }
     });
+/*
+    function createElement(type, className, innerHTML, parent, attributes){
+        var element = document.createElement(type);
+        if(className) element.className = className;
+        if(innerHTML) element.innerHTML = innerHTML;
+        if(parent) parent.appendChild(element);
+        if(attributes){
+            for(var prop in attributes){
+                element.setAttribute(prop, attributes[prop]);
+            }
+        }
+        return element;
+    }
+*/
+    var link = document.createElement('a');
+    link.setAttribute("href","'data:text/json;utf-8' + JSON.stringify(json)");
+    link.setAttribute("download","companies.txt");
+    link.innerHTML = "Download JSON file of companies.";
+    document.body.appendChild(link);
 
+
+
+    //<a href="data:text/json;utf-8." + JSON.stringify(json)>Download JSON file of companies.</a>
 </script>
 </body>
 </html>

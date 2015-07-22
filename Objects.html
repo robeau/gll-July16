@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+    'use strict';
+    //object literal - all object literals have Object.prototype as their prototype
+    var obj = {};
+    //console.log(obj);
+
+    var obj1 = {
+        x:5,
+        fn: function(y){
+            return y;
+        },
+        z: {},
+        'for': 3
+    };
+    //console.log(obj1['for']);
+    //console.log(obj1);
+
+    //constructor - create and initialize with new - all constructed objects have
+    // the prototype property of the constructor function as their prototype
+    //new is followed by function invocation
+    var obj3 = {};
+    //console.log(obj3);
+
+    var obj4 = Object.create({x:2});
+    //console.log(obj4);
+
+    var obj5 = Object.create(Object.prototype);
+    //console.log(obj5);
+
+    obj1.thing = 4;
+    var obj6 = Object.create(obj1);
+    obj6.thing2 = 6;
+    var obj7 = Object.create(obj6);
+    //console.log(obj7.thing2);
+    obj7.thing2 = 9;
+    //console.log(obj7.thing2);
+    //console.log(obj6.thing2);
+    //console.log(obj6.thing3);
+    //console.log(obj8.thing2); //Uncaught reference error
+    //console.log(obj7.thing3.length); //Uncaught type error
+    //console.log(Object.getOwnPropertyDescriptor(obj7, 'thing2'));
+
+    //delete obj7.thing2;
+    //console.log(obj7.thing2); // now it shows the inherited thing2
+
+    //delete obj1.thing;
+    //console.log(obj7.thing); // undefined
+
+    //console.log('thing' in obj1); //true
+    //console.log('thing' in obj7);//true
+
+    //console.log(obj1.hasOwnProperty('thing')); //true
+    //console.log(obj7.hasOwnProperty('thing')); // false
+
+    //console.log(obj1.propertyIsEnumerable('thing')); //true
+    //console.log(obj1.propertyIsEnumerable('toString')); //false
+
+    obj7.thing3 = undefined;
+    //console.log('thing3' in obj7); //true
+
+    var p;
+    for(p in obj7){
+        //console.log(p);
+    }
+
+    //console.log('keys: ' + Object.keys(obj7));
+    //console.log('names: ' + Object.getOwnPropertyNames(obj7));
+
+    var o;
+    o = {
+        startTime: 0,
+        endTime: 5,
+
+        get totalTime() {
+            return this.endTime - this.startTime;
+        },
+        set totalTime(time) {
+            this.endTime += time;
+        }
+    };
+
+    //console.log(o.totalTime);
+    //console.log(Object.keys(o));
+    var o2 = Object.create(o);
+    //console.log(Object.getOwnPropertyNames(o2)); //[]
+    for(p in o2){
+        //console.log(p); // startTime endTime totalTime
+    }
+    //console.log(Object.getOwnPropertyDescriptor(o, 'totalTime'));
+
+   //console.log(Object.getPrototypeOf(o2));
+
+    Object.defineProperty(o2, 'distance', {value: 4, writable: true, enumerable: true, configurable:true});
+    //console.log(Object.keys(o2));
+
+    Object.defineProperty(o2, 'distance', {writable: false});
+    o2.distance = 2;
+    //console.log(o2.distance); //4
+
+    //console.log(Object.toString(o2));
+    //console.log(Object.prototype.toString.call(o2));
+
+    //console.log(Object.isExtensible(o2)); //true
+    Object.preventExtensions(o2);
+    //console.log(Object.isExtensible(o2)); //false
+    o.location = 'Track1';
+    //console.log(o2.location); // Track1
+
+    //console.log(JSON.stringify(o)); // {"startTime":0,"endTime":5,"totalTime":5,"location":"Track1"}
+
+    /***********************************************/
+    // Functions
+    /***********************************************/
+
+    var strict = (function() { return !this; }());
+    //console.log(strict); //false
+
+    var sum = function(a,b){return a + b;};
+
+    //o.sumO = sum;
+    //console.log(o.sumO(3,1)); // 4
+
+
+
+</script>
+</body>
+</html>
